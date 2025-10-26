@@ -3,297 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftPay Token (SPT) - Crypto Payment Gateway</title>
+    <title>Crypto Presale Infographic</title>
     <style>
-        /* Modern, vibrant CSS with animations */
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #0f0f23, #1a1a2e);
-            color: #fff;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+            padding: 20px;
+            line-height: 1.6;
         }
-        header {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://via.placeholder.com/1920x400/000/fff?text=Crypto+Wave+Animation') no-repeat center/cover;
-            opacity: 0.1;
-            animation: wave 10s infinite linear;
-        }
-        @keyframes wave {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            animation: fadeInUp 1s ease-out;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        header p {
-            font-size: 1.5rem;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
+        .infographic {
+            max-width: 800px;
             margin: 0 auto;
-        }
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #667eea;
-        }
-        .intro {
-            text-align: center;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        .intro img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 15px;
-            animation: float 3s ease-in-out infinite;
-            margin: 1rem 0;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .comparison {
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
-            padding: 2rem;
-        }
-        canvas {
-            max-width: 100%;
             background: #fff;
+            padding: 20px;
             border-radius: 10px;
-            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .platforms {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 5px solid #007bff;
+            background: #f9f9f9;
+            border-radius: 5px;
         }
-        .platform-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
+        .section h2 {
+            color: #007bff;
+            margin-top: 0;
+            font-size: 24px;
         }
-        .platform-card:hover {
-            transform: scale(1.05);
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
         }
-        .advantages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .section ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
         }
-        .advantage-item {
-            background: rgba(102, 126, 234, 0.2);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
+        .section ul li:before {
+            content: "•";
+            color: #007bff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+        .highlight {
+            color: #28a745;
+            font-weight: bold;
         }
-        .stat-box {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 1rem;
-            min-width: 150px;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #000;
-            color: #ccc;
-        }
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .stats { flex-direction: column; }
+        @media (max-width: 600px) {
+            .infographic {
+                padding: 10px;
+            }
+            .section {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SwiftPay Token (SPT)</h1>
-        <p>The Future of Seamless Crypto Payments – Integrated Across Platforms Worldwide</p>
-    </header>
-
-    <!-- Introduction Section -->
-    <section class="intro">
-        <h2>Revolutionize Your Payments with SPT</h2>
-        <p>SwiftPay Token (SPT) is the native cryptocurrency powering our cutting-edge payment gateway. Designed for speed, security, and global reach, SPT enables instant, low-cost transactions across e-commerce, services, and more. Integrate effortlessly with your platform and join the crypto payment revolution!</p>
-        <img src="https://via.placeholder.com/600x400/667eea/fff?text=Animated+Crypto+Gateway+Flow" alt="Animated illustration of crypto payment flow: coins flowing through a secure gateway with blockchain nodes.">
-        <p>Experience the magic of blockchain: Transactions confirmed in seconds, fees under 1%, and 24/7 availability – no borders, no banks.</p>
-    </section>
-
-    <!-- Market Growth Comparison Section -->
-    <section class="comparison">
-        <h2>Explosive Growth in Crypto Payment Adoption</h2>
-        <p>The crypto payment gateway market is booming, outpacing traditional systems. Here's the year-over-year growth in market size (in USD Billions):</p>
-        <canvas id="growthChart" width="800" height="400"></canvas>
-        <div class="stats">
-            <div class="stat-box">
-                <h3>2025 Market Size</h3>
-                <p>$2.02 Billion</p>
-            </div>
-            <div class="stat-box">
-                <h3>CAGR (2023-2025)</h3>
-                <p>19.5%</p>
-            </div>
-            <div class="stat-box">
-                <h3>Projected 2030</h3>
-                <p>$5+ Billion</p>
-            </div>
+    <div class="infographic">
+        <div class="section">
+            <h2>SELLING AND WITHDRAWAL RULES</h2>
+            <ul>
+                <li>Users can sell tokens equivalent to 1% of their total invested capital (in token value) daily.</li>
+                <li>The invested capital is locked for a user-selected locking period (e.g., 3, 6, 12, or 24 months).</li>
+                <li>Proceeds from daily token sales are accumulated and can be withdrawn weekly (e.g., every Sunday).</li>
+                <li>Minimum withdrawal threshold is <span class="highlight">50 USDT</span> to optimize transaction fees.</li>
+                <li>Smart contract enforces the 1% daily selling limit, tracks the locking period, and manages weekly withdrawals.</li>
+            </ul>
         </div>
-        <p>Compared to traditional payment gateways (growing at ~10-12% CAGR), crypto gateways offer 2x faster expansion due to digital-native adoption. [[28]](grok://citation?card_id=01abfa&card_type=citation_card&type=render_inline_citation&citation_id=28) [[32]](grok://citation?card_id=5f92d4&card_type=citation_card&type=render_inline_citation&citation_id=32)</p>
-    </section>
-
-    <!-- Platforms Section -->
-    <section class="platforms">
-        <h2>Integrated Platforms Accepting SPT Payments</h2>
-        <p>SPT is seamlessly integrated with leading e-commerce and service platforms. Join thousands of merchants already processing crypto via our gateway.</p>
-        <div class="platform-card">
-            <h3>Shopify</h3>
-            <p>Empower your online store with one-click SPT checkouts.</p>
+        <div class="section">
+            <h2>REFERRAL PROGRAM</h2>
+            <ul>
+                <li>Users earn a <span class="highlight">10%</span> bonus in USDT for every direct referral who invests in the presale.</li>
+                <li>Users earn a <span class="highlight">5%</span> bonus in USDT for investments made by second-level referrals (referrals of direct referrals).</li>
+                <li>Referral bonuses are credited weekly and can be withdrawn during the weekly withdrawal cycle.</li>
+                <li>Each user receives a unique referral link/code to share with others.</li>
+                <li>Bonuses are funded from a designated referral pool (e.g., 5% of total presale funds).</li>
+            </ul>
         </div>
-        <div class="platform-card">
-            <h3>WooCommerce</h3>
-            <p>WordPress sites made crypto-ready in minutes.</p>
-        </div>
-        <div class="platform-card">
-            <h3>Microsoft Store</h3>
-            <p>Gaming and software purchases with SPT – global scale.</p>
-        </div>
-        <div class="platform-card">
-            <h3>Overstock</h3>
-            <p>Home goods and more, accepting crypto since 2014.</p>
-        </div>
-        <div class="platform-card">
-            <h3>Twitch</h3>
-            <p>Streamers tipping in SPT for instant rewards.</p>
-        </div>
-        <div class="platform-card">
-            <h3>Newegg</h3>
-            <p>Tech enthusiasts paying with crypto for gadgets.</p>
-        </div>
-        <div class="platform-card">
-            <h3>AT&T</h3>
-            <p>Telecom bills settled via SPT – no more fiat delays.</p>
-        </div>
-        <p style="grid-column: 1 / -1; text-align: center; margin-top: 2rem;">And many more: Etsy, Starbucks (via apps), Home Depot integrations. [[9]](grok://citation?card_id=6d345b&card_type=citation_card&type=render_inline_citation&citation_id=9) [[12]](grok://citation?card_id=440b24&card_type=citation_card&type=render_inline_citation&citation_id=12) [[16]](grok://citation?card_id=3af1e0&card_type=citation_card&type=render_inline_citation&citation_id=16)</p>
-    </section>
-
-    <!-- Advantages Section -->
-    <section class="advantages">
-        <h2>Why Choose SPT Over Traditional Banks & Gateways?</h2>
-        <div class="advantage-item">
-            <h3>Lightning-Fast Transactions</h3>
-            <p>Settlements in minutes vs. days for bank wires – ideal for global e-commerce. [[22]](grok://citation?card_id=787a5c&card_type=citation_card&type=render_inline_citation&citation_id=22) [[23]](grok://citation?card_id=71cefc&card_type=citation_card&type=render_inline_citation&citation_id=23)</p>
-        </div>
-        <div class="advantage-item">
-            <h3>Ultra-Low Fees</h3>
-            <p>Just 1% per transaction – slash costs compared to 2-5% bank fees. [[18]](grok://citation?card_id=9211e5&card_type=citation_card&type=render_inline_citation&citation_id=18) [[24]](grok://citation?card_id=fe2c21&card_type=citation_card&type=render_inline_citation&citation_id=24)</p>
-        </div>
-        <div class="advantage-item">
-            <h3>Enhanced Security</h3>
-            <p>Blockchain encryption protects against fraud; no chargebacks like in fiat systems. [[19]](grok://citation?card_id=318042&card_type=citation_card&type=render_inline_citation&citation_id=19)</p>
-        </div>
-        <div class="advantage-item">
-            <h3>Borderless & Inclusive</h3>
-            <p>24/7 access worldwide, no intermediaries or currency conversion hassles. [[21]](grok://citation?card_id=076d96&card_type=citation_card&type=render_inline_citation&citation_id=21) [[25]](grok://citation?card_id=6d3964&card_type=citation_card&type=render_inline_citation&citation_id=25)</p>
-        </div>
-        <div class="advantage-item">
-            <h3>Scalable Integrations</h3>
-            <p>Easy API for any platform – from Shopify to custom apps, with multi-coin support including SPT.</p>
-        </div>
-        <div class="advantage-item">
-            <h3>Eco-Friendly & Future-Proof</h3>
-            <p>Proof-of-Stake tech reduces energy use vs. traditional mining; ready for Web3 evolution. [[26]](grok://citation?card_id=c3ec2c&card_type=citation_card&type=render_inline_citation&citation_id=26)</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 SwiftPay Token. Powering the Next-Gen Economy. | <a href="#" style="color: #667eea;">Get Started</a></p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Chart for Market Growth
-        const ctx = document.getElementById('growthChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
-                datasets: [{
-                    label: 'Crypto Payment Gateway Market (USD Billions)',
-                    data: [0.82, 0.98, 1.17, 1.4, 1.67, 2.02],
-                    borderColor: '#667eea',
-                    backgroundColor: 'rgba(102, 126, 234, 0.2)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                scales: {
-                    y: { beginAtZero: true }
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Yearly Market Size Growth'
-                    }
-                },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeInOutQuart'
-                }
-            }
-        });
-
-        // Simple scroll animations
-        window.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.platform-card, .advantage-item');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        });
-        document.querySelectorAll('.platform-card, .advantage-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s, transform 0.6s';
-        });
-    </script>
+    </div>
 </body>
 </html>
