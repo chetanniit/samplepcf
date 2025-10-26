@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CartoonCoin Mining Adventure</title>
+    <style>
+        /* Cartoon-style CSS */
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffeb3b, #2196f3);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: #ff5722;
+            border-bottom: 5px solid #000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        header h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px #fff;
+            animation: bounce 2s infinite;
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 1200px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            text-shadow: 1px 1px #fff;
+            color: #d81b60;
+        }
+        .plans, .roadmap, .dashboard {
+            background: #fff;
+            border-radius: 15px;
+            border: 3px solid #000;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            padding: 1.5rem;
+        }
+        .plan-card {
+            display: inline-block;
+            width: 22%;
+            margin: 1%;
+            padding: 1rem;
+            background: #e1bee7;
+            border-radius: 10px;
+            border: 2px solid #000;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .plan-card:hover {
+            transform: scale(1.1);
+            background: #f06292;
+        }
+        .plan-card h3 {
+            color: #311b92;
+        }
+        .roadmap ul {
+            list-style: none;
+            padding: 0;
+        }
+        .roadmap li {
+            background: #b3e5fc;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 2px solid #000;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .roadmap li:hover {
+            background: #4fc3f7;
+        }
+        .dashboard {
+            text-align: center;
+        }
+        .dashboard canvas {
+            max-width: 100%;
+            margin: 1rem auto;
+        }
+        button {
+            background: #ffca28;
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ffa000;
+        }
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+            .plan-card { width: 45%; }
+        }
+        @media (max-width: 480px) {
+            .plan-card { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CartoonCoin (CTN) Mining Adventure</h1>
+        <p>Dig for digital gold with a toon-tastic twist!</p>
+    </header>
+
+    <!-- Mining Plans Section -->
+    <section class="plans">
+        <h2>Choose Your Mining Plan</h2>
+        <div id="plans-container">
+            <div class="plan-card" data-plan="starter">
+                <h3>Starter Sketch</h3>
+                <p>10 TH/s | $29.99/mo</p>
+                <p>5-10 CTN/day</p>
+                <p>Basic dashboard, cartoon tutorials</p>
+                <button onclick="selectPlan('Starter Sketch')">Select</button>
+            </div>
+            <div class="plan-card" data-plan="pro">
+                <h3>Pro Pencil</h3>
+                <p>50 TH/s | $99.99/mo</p>
+                <p>25-50 CTN/day</p>
+                <p>Priority support, 2x hash boost</p>
+                <button onclick="selectPlan('Pro Pencil')">Select</button>
+            </div>
+            <div class="plan-card" data-plan="epic">
+                <h3>Epic Eraser</h3>
+                <p>200 TH/s | $299.99/mo</p>
+                <p>100-200 CTN/day</p>
+                <p>Custom skins, VIP roadmap</p>
+                <button onclick="selectPlan('Epic Eraser')">Select</button>
+            </div>
+            <div class="plan-card" data-plan="legendary">
+                <h3>Legendary Lineart</h3>
+                <p>1000+ TH/s | Custom</p>
+                <p>500+ CTN/day</p>
+                <p>Dedicated servers, team dashboards</p>
+                <button onclick="selectPlan('Legendary Lineart')">Select</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap">
+        <h2>Roadmap to Toonverse</h2>
+        <ul id="roadmap-list">
+            <li onclick="toggleMilestone(this)">Q4 2025: Beta app, 1M CTN airdrop</li>
+            <li onclick="toggleMilestone(this)">Q1 2026: Pro plans, Mine-a-Thon event</li>
+            <li onclick="toggleMilestone(this)">Q2 2026: Epic plans, AR mining filters</li>
+            <li onclick="toggleMilestone(this)">Q3 2026: Legendary tier, CTN DEX</li>
+            <li onclick="toggleMilestone(this)">Q4 2026+: Metaverse worlds, 1B market cap</li>
+        </ul>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <h2>Your Mining Dashboard</h2>
+        <p id="dashboard-status">Select a plan to start mining!</p>
+        <canvas id="miningChart" width="400" height="200"></canvas>
+        <button onclick="simulateMining()">Mine Now!</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // JavaScript for interactivity
+        let selectedPlan = null;
+        let minedCoins = 0;
+
+        // Plan selection
+        function selectPlan(planName) {
+            selectedPlan = planName;
+            document.getElementById('dashboard-status').textContent = `Mining with ${planName}!`;
+            updateChart();
+        }
+
+        // Roadmap milestone toggle
+        function toggleMilestone(element) {
+            element.style.background = element.style.background === 'rgb(79, 195, 247)' ? '#b3e5fc' : '#4fc3f7';
+            element.textContent = element.textContent.includes('✓') ? 
+                element.textContent.replace(' ✓', '') : element.textContent + ' ✓';
+        }
+
+        // Mock mining simulation
+        function simulateMining() {
+            if (!selectedPlan) {
+                alert('Please select a mining plan first!');
+                return;
+            }
+            const rates = {
+                'Starter Sketch': 7,
+                'Pro Pencil': 35,
+                'Epic Eraser': 150,
+                'Legendary Lineart': 600
+            };
+            minedCoins += rates[selectedPlan] || 0;
+            updateChart();
+            document.getElementById('dashboard-status').textContent = 
+                `Mining with ${selectedPlan}! Total CTN: ${minedCoins}`;
+        }
+
+        // Chart.js for mining stats
+        const ctx = document.getElementById('miningChart').getContext('2d');
+        const miningChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mined CTN'],
+                datasets: [{
+                    label: 'Coins Mined',
+                    data: [minedCoins],
+                    backgroundColor: '#ffca28',
+                    borderColor: '#000',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                },
+                plugins: {
+                    legend: { display: true },
+                    title: {
+                        display: true,
+                        text: 'CartoonCoin Mining Progress',
+                        font: { size: 20 }
+                    }
+                }
+            }
+        });
+
+        function updateChart() {
+            miningChart.data.datasets[0].data = [minedCoins];
+            miningChart.update();
+        }
+    </script>
+</body>
+</html>
